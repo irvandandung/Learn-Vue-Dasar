@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<!-- * digunakan untuk memberitahu vue bahwa variable permanent -->
+		{{ nama }} - {{ umur }}
+		<br>
+		<!-- v-html digunakan render html -->
+		{{ nama + " Josh"}}
+		<br>
+		{{ laki ? "dia laki" : "dia perempuan"}}
+		<div v-html="raw"></div>
+	</div>
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		// bentuk di dalam objek vue berupa key : value
+		//key harus sesuai yang ada di doc vue.
+
+		//data
+		let data = {
+			nama : "dandung",
+			umur : 20,
+			raw : "<p><b> Ini menggunakan element p & b </b></p>",
+			laki : true
+		}
+
+		// new Vue({
+		// 	el : '#app',
+		// 	data : data
+		// 	// data : {
+		// 	// 	nama : "dandung",
+		// 	// 	umur : 20
+		// 	// }
+		// });
+		
+		// jika ingin menggunakan vue diluar objek di atas, kita bisa menggunakannya dengan memasukan objek di atas tersebut ke dalam variable
+		// contoh :
+		const vo = new Vue({
+			el : '#app',
+			data : data
+			// data : {
+			// 	nama : "dandung",
+			// 	umur : 20
+			// }
+		});
+
+		// untuk penggunaannya kita tinggal panggil variable di atas dengan diikuti .propertinya
+		// contoh :
+		// vo.property
+	</script>
+</body>
+</html>
