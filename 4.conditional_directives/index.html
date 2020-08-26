@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<div v-if="done">
+			{{ biodata }}
+			<br>
+			{{ biodatasetget }}
+		</div>
+		<div v-else>
+			maaf insert data biodatasetget di console terlebih dahulu
+		</div><!-- 
+		perbedaan v-if & v-show yaitu jika menggunakan v-if elemennya jg ikut hilang, jika v-show, elemennya ada cuma ia menyembunyikannya dg properti css display:none -->
+		<div v-show="this.umur < 10">
+			{{ biodata }}
+			<br>
+			{{ biodatasetget }}
+		</div>
+	</div>
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		// bentuk di dalam objek vue berupa key : value
+		//key harus sesuai yang ada di doc vue.
+
+		// new Vue({
+		// 	el : '#app',
+		// 	data : data
+		// 	// data : {
+		// 	// 	nama : "dandung",
+		// 	// 	umur : 20
+		// 	// }
+		// });
+		
+		// jika ingin menggunakan vue diluar objek di atas, kita bisa menggunakannya dengan memasukan objek di atas tersebut ke dalam variable
+		// contoh :
+		const vo = new Vue({
+			el : '#app',
+			data : {
+				a : 1,
+				nama : 'dandung',
+				umur : 20,
+				done : false
+			},
+			computed : {
+				b : function() {
+					return this.a + 2
+				},
+				biodata : function(){
+					return `${this.nama} saya berumur ${this.umur} tahun` 
+				},
+				biodatasetget : {
+					get: function(){
+						return `${this.nama} saya berumur ${this.umur} tahun`
+					},
+					//for set cek in console, ketik -> vo.biodatasetget = "dandung 21"
+					set : function(params){
+						let credential = params.split(' ')
+						this.nama = credential[0]
+						this.umur = credential[1]
+						this.done = true
+					}
+				}
+			}
+			// data : {
+			// 	nama : "dandung",
+			// 	umur : 20
+			// }
+		});
+
+		// untuk penggunaannya kita tinggal panggil variable di atas dengan diikuti .propertinya
+		// contoh :
+		// vo.property
+	</script>
+</body>
+</html>
