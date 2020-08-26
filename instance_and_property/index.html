@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		{{ nama }} - {{ umur }}
+	</div>
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		// bentuk di dalam objek vue berupa key : value
+		//key harus sesuai yang ada di doc vue.
+
+		//data
+		let data = {
+			nama : "dandung",
+			umur : 20
+		}
+		new Vue({
+			el : '#app',
+			data : data
+			// data : {
+			// 	nama : "dandung",
+			// 	umur : 20
+			// }
+		});
+		
+		// jika ingin menggunakan vue diluar objek di atas, kita bisa menggunakannya dengan memasukan objek di atas tersebut ke dalam variable
+		// contoh :
+		// const vo = new Vue({
+
+		// });
+
+		// untuk penggunaannya kita tinggal panggil variable di atas dengan diikuti .propertinya
+		// contoh :
+		// vo.property
+	</script>
+</body>
+</html>
